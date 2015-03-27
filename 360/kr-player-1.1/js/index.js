@@ -112,10 +112,12 @@ function embedPanoramicContent () {
 	var vars = settings.vars = {};
 	if(type == 'image') {
 		vars['image.sphere.url'] = url;
+        console.log('type: image');
 	} else {
 		vars['plugin[video].videourl'] = url;
 		vars['plugin[video].posterurl'] = splash;
 		vars['plugin[video].pausedonstart'] = true;
+        console.log('type: default');
 	}
 
 	//console.log ( JSON.stringify( settings ));

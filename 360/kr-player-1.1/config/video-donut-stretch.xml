@@ -1,0 +1,45 @@
+<krpano version="1.18" bgcolor="0x000000" debugmode="false" logkey="true" showerrors="true">
+
+    <!-- the videoplayer interface skin -->
+    <include url="../skin/videointerface.xml" />
+
+    <!-- include the videoplayer plugin and load the video (use a low res video for iOS) -->
+    <plugin name="video"
+    url.flash="%SWFPATH%/plugins/videoplayer.swf"
+    url.html5="%SWFPATH%/plugins/videoplayer.js"
+
+    pausedonstart="true"
+    loop="false"
+    enabled="false"
+    zorder="0"
+    align="center" ox="0" oy="0"
+
+    width.no-panovideosupport="100%"
+    height.no-panovideosupport="prop"
+
+    onloaded="videointerface_setup_interface(get(name));"
+    onvideoready="videointerface_videoready();"
+    onvideocomplete="videointerface_videocomplete();"
+    />
+    <!-- see skin xml -->
+
+    <!-- the panoramic video image -->
+    <image devices="panovideosupport" hfov="360" vfov="60">
+        <sphere url="plugin:video" />
+    </image>
+
+
+    <!-- set the default view - a light fisheye projection -->
+    <view
+    hlookat="0"
+    vlookat="0"
+    limitview="lookat"
+    vlookatmin="0"
+    vlookatmax="0"
+    fovtype="DFOV"
+    fov="130"
+    fovmin="80"
+    fovmax="80"
+    fisheye="0.35" />
+
+</krpano>

@@ -24,7 +24,7 @@
     <!-- see skin xml -->
     
     <!-- the panoramic video image -->
-    <image devices="panovideosupport" hfov="360" vfov="360">
+    <image devices="panovideosupport">
         <sphere url="plugin:video" />
     </image>
     
