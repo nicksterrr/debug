@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>360 Player Wizard</title>
+	<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/admin.css">
+
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<form>
+				<div class="panel-group" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default panel-info">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				          Required Configuration
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+				      		
+				      		<div class="alert alert-warning" role="alert">
+				      			<ul>
+				      			<li><strong>URL:</strong>
+				      			<ul>
+				      				<li>File Extensions: <span id='fileTypeLabel'></span></li>
+                      <li>Files uploaded to '360videos' will reside at: <span id="DEFAULT_VIDEO_URL"></span>NAME.EXT</li>
+				      			</ul>
+				      			<li><strong>Video Codec:</strong> H264 MPEG-4 AVC part 10 (avc1) <i>Fast start</i>
+				      			<ul>
+				      				<li>Panoramic/Donut: 1920x320</li>
+				      				<li>360: 1280x640</li>
+				      			</ul>
+				      			<li><strong>Audio Codec:</strong> MPEG AAC (mp4a)</li>
+				      			</ul>
+				      			
+				      		</div>
+
+						  <div class="form-group">
+						    <label for="url">Video URL<br/>
+						    <small class="text-muted">Except for RTMP feeds, media should reside on the same server as the player.
+						    </small></label>
+						    <input type="text" class="form-control" id="url" placeholder="Primary URL" value="">
+						    <div class="text-danger"><small id="url-error"></small></div>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="desktopOnly">Desktop Only</label>
+						    <select id="desktopOnly" class="form-control">
+							  <option value="false" selected>Desktop and Mobile</option>
+							  <option value="true">Desktop Only</option>
+							</select>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="type">Media Type</label>
+						    <select id="type" class="form-control">
+							  <option value="video" selected>Video</option>
+							  <option value="image">Image</option>
+							</select>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="config">360 Layout</label>
+						    <select id="config" class="form-control">
+							  <option value="video-donut.xml" selected>Panoramic Video</option>
+							  <option value="video.xml" >360 Video</option>
+							  <option value="image.xml">Image</option>
+							</select>
+						  </div>
+
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default panel-info">
+				    <div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Optional / Advanced Configuration</a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="collapse panel-collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      <div class="panel-body">
+
+						  <div class="form-group">
+						    <label for="splash">Splash Image URL<br/>
+						    <small class="text-muted">Media should reside on the same server as the player.</small></label>
+						    <input type="text" class="form-control" id="splash" placeholder="Splash Image URL" value="">
+						    <div class="text-danger"><small id="splash-error"></small></div>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="url_ios">iOS Video URL<br/>
+						    <small class="text-muted">Media should reside on the same server as the player.</small></label>
+						    <input type="text" class="form-control" id="url_ios" placeholder="iOS URL" value="">
+						    <div class="text-danger"><small id="url_ios-error"></small></div>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="config_ios">iOS 360 Layout</label>
+						    <select id="config_ios" class="form-control">
+						      <option value="" selected></option>
+							  <option value="video-donut.xml">Panoramic Video</option>
+							  <option value="video.xml">360 Video</option>
+							  <option value="image.xml">Image</option>
+							</select>
+						  </div>
+
+						  <div class="form-group">
+						    <label for="fallbackBcVideoId">Mobile FallBack Brightcove Video Id</label>
+						    <input type="text" class="form-control" id="fallbackBcVideoId" placeholder="FallBack Brightcove Video Id" value="">
+						  </div>
+
+						  <div class="form-group">
+						    <label for="fallbackBcPlayerKey">Mobile FallBack Brightcove Player Key</label>
+						    <input type="text" class="form-control" id="fallbackBcPlayerKey" placeholder="FallBack Brightcove Player Key" value="">
+						  </div>
+
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default panel-info">
+				    <div class="panel-heading" role="tab" id="headingThree">
+				      <h4 class="panel-title">
+				          HTML Embed Code / Preview
+				      </h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      <div class="panel-body">
+				      		<div id="html-preview-reset">
+				      			Please click 'Update' to generate embed HTML.
+				      		</div>
+				      		<div id="html-preview" class="hidden">
+							  	<p>
+							  		<span id="html-embed-link"></span>
+							  	</p>
+							  	<p>
+							  		Please use the HTML below to embed the player into a webpage. In Presto, use the <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-help">Embed HTML</button> option in the rich text editor to add the player to a Story.
+							  	</p>
+
+								<div class="col-sm-4">
+									<textarea readonly rows="18" id='html-embed-code' class="form-control"></textarea>
+								</div>
+
+								<div class="col-sm-8">
+									<span id="html-embed-iframe"></span>
+								</div>
+							</div>
+
+				      </div>
+				    </div>
+				  </div>
+
+					<p>
+						<button type="button" class="btn btn-default btn-clear pull-left">Reset</button>
+						<button type="button" class="btn btn-primary btn-submit pull-right">Update</button>
+					</p>
+
+			</form>
+		</div>
+	</div>
+
+	<!-- modal //-->
+	<div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Help</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<p>In Presto, use the 'Embed HTML' option in the rich text editor to add the player to a Story.</p>
+	        <img src="../images/html_embed.jpg" border="0" width="100%"/>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

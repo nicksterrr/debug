@@ -1,0 +1,26 @@
+<krpano version="1.18" bgcolor="0x000000" debugmode="true" logkey="true" showerrors="true">
+
+    <plugin name="videointerface_gyro"
+            url.html5.and.no-desktop.and.panovideosupport="%SWFPATH%/plugins/gyro.js"
+            enabled="true"
+            onavailable=""
+            />
+
+    <image type="SPHERE" hfov="360" vfov="" voffset="0" prealign="">
+        <sphere />
+    </image>
+
+	<!-- set the default view - a light fisheye projection -->
+    <view 
+    	hlookat="0" 
+    	vlookat="0" 
+    	limitview="lookat"
+    	vlookatmin="0"
+    	vlookatmax="0"
+    	fovtype="DFOV"
+    	fov="130" 
+    	fovmin="80" 
+    	fovmax="80" 
+    	fisheye="0.35" />
+    
+</krpano>
